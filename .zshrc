@@ -107,11 +107,6 @@ if [[ -e "$HOME/.dotfiles-work" ]] then
     export WORK_PROFILE=1
 fi
 
-# TODO: Source profiles specific to
-# source $HOME/.zshrc-common
-# source $HOME/.zshrc-home
-# source $HOME/.zshrc-work
-
 # Explicity state UTF-8 is supported ( tmux is breaking otherwise )
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
