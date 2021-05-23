@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Set dotfiles directory
+cd "$(dirname "$0")/.."
+DOTFILES=$(pwd -P)
+
+set -ex
+
+# Copy configurations to appropriate place
+
+make_link () {
+  local src=$DOTFILES/$1 dst=$HOME/$2
+  ln -sf -T $src $dst
+}
+
+# NVIM setup
+make_link nvim .config/nvim
+
+# ZSH setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+make_link .zshrc .zshrc
