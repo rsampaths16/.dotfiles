@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/neovim/nvim-lspconfig.git'
+Plug 'https://github.com/kabouzeid/nvim-lspinstall.git'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim.git'
 
 call plug#end()
@@ -88,6 +89,9 @@ local servers = {}
 if work_profile == nil then
     print("This is not a work profile")
     servers = { "tsserver", "jdtls", "pyls" }
+else
+    require'lspinstall'.setup()
+    servers = require'lspinstall'.installed_servers()
 end
 
 for _, lsp in ipairs(servers) do
