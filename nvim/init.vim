@@ -85,7 +85,8 @@ end
 -- and map buffer local keybindings when the language server attaches
 local servers = {}
 
-if work_profile ~= nil then
+if work_profile == nil then
+    print("This is not a work profile")
     servers = { "tsserver", "jdtls", "pyls" }
 end
 
